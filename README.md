@@ -1,4 +1,4 @@
-Computer Vision Algoirthms
+cVision
 ===
 
 Matlab implementation of computer vision algorithms
