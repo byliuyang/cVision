@@ -5,11 +5,10 @@ Matlab implementation of computer vision algorithms
 
 What's inside?
 ----
-- Corner Detector
-	- [x] Harris detector
-- Feature detector
-	- [ ] Normalized intensity patches detector
-	- [ ] SIFT-like local detector
+- Corner Detectors
+	- [x] Harris corner detector
+- Feature descriptors
+	- [ ] SIFT-like local descriptor
 - Feature matching
 	- [ ] Nearest neighbor distance ratio test
 
