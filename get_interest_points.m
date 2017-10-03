@@ -42,15 +42,7 @@ function [x, y, confidence, scale, orientation] = get_interest_points(image, fea
 
 image = im2single(image);
 
-xH = [-2 -1 0 1 2];
-yH = [-2;-1;0;1;2];
-
-% gX = imfilter(gH, xH);
-% gY = imfilter(gH, yH);
-
-Ix = filter2(xH, image);
-
-Iy = filter2(yH, image);
+[Ix,Iy] = imgradients(image);
 
 Ix_square = Ix.^2;
 Iy_square = Iy.^2;

@@ -7,10 +7,10 @@ function [res, count] = nonmax_suppression(values, feature_width)
     threshold = 0.1;
     threshold_val = max(max(values)) * threshold;
     count = 0;
-    for row = half_width + 1:height - half_width
-        for column = half_width + 1:width - half_width
+    for row = half_width:height - half_width
+        for column = half_width:width - half_width
             if values(row, column) >= threshold_val
-                res(row, column) = is_max(values, res, row, column, half_width);
+                res(row, column) = is_max(values, row, column, half_width);
                 count = count + res(row, column);
             end
         end
