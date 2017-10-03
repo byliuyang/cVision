@@ -5,7 +5,8 @@ show_interest_points(rgb2gray(imread('images/NotreDame1.jpg')), 2,0, 10);
 show_interest_points(checkerboard, 2,1, 1);
 
 function show_interest_points(I, rows,last, marker_size)
-    [x, y, confidence, scale, orientation] = get_interest_points(I, 40);
+    I = im2single(I);
+    [x, y, confidence, scale, orientation] = get_interest_points(I, 12);
 
     positions = horzcat(x, y);
     
@@ -18,6 +19,5 @@ function show_interest_points(I, rows,last, marker_size)
     imshow(I); hold on;
     points = detectHarrisFeatures(I);
     plot(points.selectStrongest(count(1)));
-
     subplot(rows, 2, 2);
 end

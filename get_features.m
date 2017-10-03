@@ -17,7 +17,6 @@
 %   standard SIFT)
 
 function [features] = get_features(image, x, y, feature_width)
-
 % To start with, you might want to simply use normalized patches as your
 % local feature. This is very simple to code and works OK. However, to get
 % full credit you will need to implement the more effective SIFT descriptor
@@ -57,13 +56,10 @@ function [features] = get_features(image, x, y, feature_width)
 %Placeholder that you can delete. Empty features.
     features = zeros(size(x,1), 128);
     cell_width = feature_width / 4;
-    threshold = 0.2;
+    threshold = 1;
     
-    image = im2single(image);
-    
-    gH = fspecial('Gaussian', [feature_width feature_width], feature_width / 2);
+    gH = fspecial('Gaussian', [feature_width feature_width], 2);
     Ig = imfilter(image, gH);
-   
     [Ix,Iy] = imgradients(Ig);
     Im = sqrt(Ix.^2 + Iy.^2);
     theta = radtodeg(atan2(Iy, Ix));
@@ -77,6 +73,7 @@ function [features] = get_features(image, x, y, feature_width)
         x_start = x(i) - 2 * cell_width;
         for y_cell = 0:3
             top = y_start + y_cell * cell_width;
+
             weighted_Im = mt_copy(Im, y_start, x_start, feature_width, feature_width);
             weighted_Im = imfilter(weighted_Im, fall_off_H);
             for x_cell = 0:3

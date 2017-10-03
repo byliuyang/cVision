@@ -40,15 +40,13 @@ function [x, y, confidence, scale, orientation] = get_interest_points(image, fea
 % x = ceil(rand(500,1) * size(image,2));
 % y = ceil(rand(500,1) * size(image,1));
 
-image = im2single(image);
-
 [Ix,Iy] = imgradients(image);
 
 Ix_square = Ix.^2;
 Iy_square = Iy.^2;
 Ixy = Ix.*Iy;
 
-gH = fspecial('Gaussian', 6, 10);
+gH = fspecial('Gaussian', 6, 6);
 Ix_square = filter2(gH, Ix_square);
 Iy_square = filter2(gH, Iy_square);
 Ixy = filter2(gH, Ixy);
