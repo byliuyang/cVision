@@ -5,7 +5,7 @@ show_interest_points(rgb2gray(imread('images/NotreDame1.jpg')), 2,0, 10);
 show_interest_points(checkerboard, 2,1, 1);
 
 function show_interest_points(I, rows,last, marker_size)
-    [x, y, confidence, scale, orientation] = get_interest_points(I, 12);
+    [x, y, confidence, scale, orientation] = get_interest_points(I, 40);
 
     positions = horzcat(x, y);
     
