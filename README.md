@@ -8,14 +8,14 @@ What's inside?
 - Corner Detectors
 	- [x] Harris corner detector
 - Feature descriptors
-	- [ ] SIFT-like local descriptor
+	- [x] SIFT-like local descriptor
 - Feature matching
-	- [ ] Nearest neighbor distance ratio test
+	- [x] Nearest neighbor distance ratio test
 
 Getting Started
 ----
 
-Open project with Matlab and run `test.m`.
+Open project with Matlab and run `proj2`.
 
 Authors
 ----

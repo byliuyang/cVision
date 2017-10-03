@@ -1,7 +1,7 @@
 close all;
 
 figure;
-show_interest_points(rgb2gray(imread('images/NotreDame1.jpg')), 2,0, 10);
+show_interest_points(rgb2gray(imread('data/Notre Dame/921919841_a30df938f2_o.jpg')), 2,0, 10);
 show_interest_points(checkerboard, 2,1, 1);
 
 function show_interest_points(I, rows,last, marker_size)
