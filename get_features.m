@@ -57,7 +57,7 @@ function [features] = get_features(image, x, y, feature_width)
 %Placeholder that you can delete. Empty features.
     features = zeros(size(x,1), 128);
     cell_width = feature_width / 4;
-    cut_off = 0.2;
+    threshold = 0.2;
     
     image = im2single(image);
     
@@ -85,11 +85,8 @@ function [features] = get_features(image, x, y, feature_width)
             end
         end
     end
-    max_mg = max(max(features));
-    for i = 1:num_points
-        for h_index = 1:128
-            features(i, h_index) = min([features(i, h_index) / max_mg, cut_off]);
-        end
-    end
+    features = normalize_features(features);
+    features = threshold_features(features, threshold);
+    features = normalize_features(features);
 end
 
